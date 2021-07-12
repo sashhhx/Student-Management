@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Display Marks{% endblock title %}
+{% block body %}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .column {
+    float: left;
+    width: 50%;
+    padding: 0px;
+  }
+
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 0px solid #ddd;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 16px;
+  }
+
+  }
+</style>
+</head>
+
+<div class="row">
+  <div class="column">
+    <table>
+      <tr style="border-bottom:1px solid black">
+        <th>ID</th>
+        <th>NAME</th>
+      </tr>
+      {% for student in stu %}
+      <tr style="border-bottom:1px solid black">
+        <td>{{student.student_id}}</td>
+        <td>{{student.student_name}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="column">
+    <table>
+      <tr style="border-bottom:1px solid black">
+        <th>SUBJECT 1</th>
+        <th>SUBJECT 2</th>
+        <th>SUBJECT 3</th>
+        <th>SUBJECT 4</th>
+        <th>SUBJECT 5</th>
+      </tr>
+      {% for mark in marks %}
+      <tr style="border-bottom:1px solid black">
+        <td>{{mark.sub1}}</td>
+        <td>{{mark.sub2}}</td>
+        <td>{{mark.sub3}}</td>
+        <td>{{mark.sub4}}</td>
+        <td>{{mark.sub5}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </div>
+</div>
+{% endblock body %}

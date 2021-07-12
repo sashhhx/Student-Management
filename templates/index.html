@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  float: left;
+  margin-right: -50px;
+  margin-left: 420px;
+  margin-top: 200px;
+}
+
+.card card_img {
+
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+
+<div class="card">
+<div class="card_img">
+  <img src="/static/img/ms.jfif" alt="Avatar" class="image" style="width:100%">
+  <form action="/" method="get">
+  <button class="button" formaction="/marks" type="submit">MARKSHEET</button>
+</div>
+</div>
+
+<div class="card">
+    <div class="card_img">
+  <img src="/static/img/ttab.jfif" alt="Avatar" class="image" style="width:100%">
+  <form action="/" method="get">
+  <button class="button" formaction="/timetable" type="submit">TIME-TABLE</button>
+</div>
+</div>
+
+</body>
+
+{% endblock body %}

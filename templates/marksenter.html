@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Enter Marks{% endblock title %}
+{% block body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Marks</title>
+
+    <style>
+        div.form {
+            display: block;
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form">
+        <h2 class="text-center my-4">Enter student details and subject marks</h2>
+        <form method="POST" action="/marksenter">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="student_id" class="form-label">Student ID</label>
+                <input type="number" class="form-control" id="student_id" name="student_id" placeholder="Enter ID">
+            </div>
+            <div class="mb-3">
+                <label for="student_name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="student_name" name="student_name"
+                    placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+                <label for="sub1" class="form-label">Subject 1</label>
+                <input type="number" class="form-control" id="sub1" name="sub1" placeholder="Enter marks">
+            </div>
+            <div class="mb-3">
+                <label for="sub2" class="form-label">Subject 2</label>
+                <input type="number" class="form-control" id="sub2" name="sub2" placeholder="Enter marks">
+            </div>
+            <div class="mb-3">
+                <label for="sub3" class="form-label">Subject 3</label>
+                <input type="number" class="form-control" id="sub3" name="sub3" placeholder="Enter marks">
+            </div>
+            <div class="mb-3">
+                <label for="sub4" class="form-label">Subject 4</label>
+                <input type="number" class="form-control" id="sub4" name="sub4" placeholder="Enter marks">
+            </div>
+            <div class="mb-3">
+                <label for="sub5" class="form-label">Subject 5</label>
+                <input type="number" class="form-control" id="sub5" name="sub5" placeholder="Enter marks">
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+{% endblock body %}
