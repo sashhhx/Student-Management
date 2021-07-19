@@ -2,8 +2,8 @@ from django.contrib import admin
 from home.models import Student, Marksheet
 # Register your models here.
 
-# class MarksheetAdmin(admin.ModelAdmin):
-#     list_display = ['sub1', 'sub2', 'sub3', 'sub4', 'sub5']
+class MarksheetAdmin(admin.ModelAdmin):
+    list_display = ['student', 'sub1', 'sub2', 'sub3', 'sub4', 'sub5']
     
 
 class StudentAdmin(admin.ModelAdmin):
@@ -11,5 +11,5 @@ class StudentAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Marksheet)
+admin.site.register(Marksheet, MarksheetAdmin)
 admin.site.register(Student, StudentAdmin)

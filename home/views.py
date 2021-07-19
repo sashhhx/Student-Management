@@ -1,10 +1,13 @@
+from django.db.models.query import QuerySet
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect, render
+from rest_framework import serializers, viewsets
 from .models import Marksheet, Student
-from .forms import MarksheetRegister,StudentRegister
+from .forms import MarksheetRegister, StudentRegister
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from home.serializers import StudentSerializer, MarksheetSerializer
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -68,3 +71,11 @@ def marksDisplay(request):
     stu = Student.objects.all()
     marks = Marksheet.objects.all()
     return render(request, 'marksdisplay.html', {'stu':stu, 'marks':marks})
+
+class StudentViewSet(viewsets.ModelViewSet):
+    serializer_class = StudentSerializer
+    queryset = Student.objects.all()
+
+class MarksheetViewSet(viewsets.ModelViewSet):
+    serializer_class = MarksheetSerializer
+    queryset = Marksheet.objects.all()
